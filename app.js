@@ -1,42 +1,17 @@
 const request = require('request');
 const geocode = require('./utils/geocode');
-
-//api goes here
-
-// request({url: url, json: true}, (error, response)=>{
-	
-// 	if(error){
-// 		console.log("unable to connect to wheater service");
-// 	}else if(response.body.error){
-// 		console.log("unable to find location");
-// 	}else{
-// 		console.log(response.body.current.weather_descriptions[0]+ ". it is curretly " + response.body.current.temperature + " and it feels like " + response.body.current.feelslike);
-
-// 	}
-
-// 	// console.log(response.body.current);
-// });
-
-// request({url: geocodeURL, json: true}, (error,response)=>{
-// 	if(error){
-// 		console.log("Unable to connect with location service");
-// 	}else if(response.body.features.length ==0){
-// 		console.log("Unable to find your location, try another search");
-// 	}
-// 	else{
-// 		const latitude = response.body.features[0].center[1];
-// 		const longitude = response.body.features[0].center[0];
-// 		console.log(latitude, longitude);
-// 	}
-	
-// });
+const forecast = require('./utils/forecast');
 
 
-//response.body.features
-
-geocode("Boston",(error,data) => {
-	console.log("error", error);
-	console.log("data", data)
-
+forecast(-75.7088, 44.1545, (error, data) => {
+  console.log('Error', error)
+  console.log('Data', data)
 })
- 
+
+
+
+
+ forecast(40.1220, 25.4988, (error, data) => {
+  console.log('Error', error)
+  console.log('Data', data)
+})
