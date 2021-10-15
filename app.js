@@ -1,4 +1,5 @@
 const request = require('request');
+const geocode = require('./utils/geocode');
 
 //api goes here
 
@@ -16,19 +17,26 @@ const request = require('request');
 // 	// console.log(response.body.current);
 // });
 
-request({url: geocodeURL, json: true}, (error,response)=>{
-	if(error){
-		console.log("Unable to connect with location service");
-	}else if(response.body.features.length ==0){
-		console.log("Unable to find your location, try another search");
-	}
-	else{
-		const latitude = response.body.features[0].center[1];
-		const longitude = response.body.features[0].center[0];
-		console.log(latitude, longitude);
-	}
+// request({url: geocodeURL, json: true}, (error,response)=>{
+// 	if(error){
+// 		console.log("Unable to connect with location service");
+// 	}else if(response.body.features.length ==0){
+// 		console.log("Unable to find your location, try another search");
+// 	}
+// 	else{
+// 		const latitude = response.body.features[0].center[1];
+// 		const longitude = response.body.features[0].center[0];
+// 		console.log(latitude, longitude);
+// 	}
 	
-});
+// });
 
 
 //response.body.features
+
+geocode("Boston",(error,data) => {
+	console.log("error", error);
+	console.log("data", data)
+
+})
+ 
